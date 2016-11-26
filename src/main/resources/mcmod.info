@@ -1,14 +1,14 @@
 [
 {
-  "modid": "examplemod",
-  "name": "Example Mod",
-  "description": "Example placeholder mod.",
+  "modid": "pbtmod",
+  "name": "+Blaze Tools Mod",
+  "description": "Mod that adds functionality to blaze drops with new tools, armor and mechanics!",
   "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",
-  "authorList": ["ExampleDude"],
-  "credits": "The Forge and FML guys, for making this example",
+  "authorList": ["Bernasss12"],
+  "credits": "Bernasss12 for textures and code.",
   "logoFile": "",
   "screenshots": [],
   "dependencies": []
