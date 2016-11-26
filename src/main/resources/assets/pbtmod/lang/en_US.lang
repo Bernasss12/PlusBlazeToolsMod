@@ -1,2 +1,7 @@
 #English US language file.
+
+#Creative Tabs
 itemGroup.tab_general=+Blaze Tools Mod
+
+#Items
+item.blazed_iron.name=Blazed Iron Ingot

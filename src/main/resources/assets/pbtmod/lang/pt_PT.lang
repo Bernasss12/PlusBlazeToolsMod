@@ -1,2 +1,7 @@
 #Ficheiro de linguagem Portugues/Portugal
+
+#Abas do Creativo
 itemGroup.tab_general=+Ferramentas de Blaze
+
+#Itens
+item.blazed_iron.name=Lingote de Ferro de Blaze

@@ -31,6 +31,6 @@ public class ModItems {
     }
 
     public static void registerRenders(Item item){
-        Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(item, 0, new ModelResourceLocation(PlusBlazeToolsMain.MODID + ":" + item.getUnlocalizedName().substring(5)));
+        Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(item, 0, new ModelResourceLocation(PlusBlazeToolsMain.MODID + ":" + item.getUnlocalizedName().substring(5),"inventory"));
     }
 }

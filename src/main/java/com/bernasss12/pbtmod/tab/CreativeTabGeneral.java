@@ -1,5 +1,7 @@
 package com.bernasss12.pbtmod.tab;
 
+import com.bernasss12.pbtmod.item.ModItem;
+import com.bernasss12.pbtmod.item.ModItems;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -14,6 +16,6 @@ public class CreativeTabGeneral extends CreativeTabs{
 
     @Override
     public Item getTabIconItem() {
-        return Items.DIAMOND;
+        return ModItems.blazedIron;
     }
 }
