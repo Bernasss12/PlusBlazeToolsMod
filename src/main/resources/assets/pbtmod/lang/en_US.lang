@@ -5,3 +5,6 @@ itemGroup.tab_general=+Blaze Tools Mod
 
 #Items
 item.blazed_iron.name=Blazed Iron Ingot
+item.blazed_gold.name=Blazed Gold Ingot
+item.blazed_diamond.name=Blazed Diamond
+item.blazed_emerald.name=Blazed Emerald

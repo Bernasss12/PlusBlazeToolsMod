@@ -4,4 +4,7 @@
 itemGroup.tab_general=+Ferramentas de Blaze
 
 #Itens
-item.blazed_iron.name=Lingote de Ferro de Blaze
+item.blazed_iron.name=Lingote de Ferro Ardente
+item.blazed_gold.name=Lingote de Ouro Ardente
+item.blazed_diamond.name=Diamante Ardente
+item.blazed_emerald.name=Esmeralda Ardente
