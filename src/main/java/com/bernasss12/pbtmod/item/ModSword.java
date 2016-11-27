@@ -38,33 +38,33 @@ public class ModSword extends ItemSword {
         this.damageFS = dmg;
     }
 
-
-
-    /**
+    /** Work like a flint and steel but only on obsidian and netherrack. */
     @Override
-    public EnumActionResult onItemUse(ItemStack stack, EntityPlayer playerIn, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
-    {
-        pos = pos.offset(facing);
+    public EnumActionResult onItemUse(ItemStack stack, EntityPlayer playerIn, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
 
-        if (!playerIn.canPlayerEdit(pos, facing, stack))
-        {
-            return EnumActionResult.FAIL;
+        if (worldIn.getBlockState(pos).getBlock() == Blocks.OBSIDIAN || worldIn.getBlockState(pos).getBlock() == Blocks.NETHERRACK) {
+            pos = pos.up();
+            if (worldIn.getBlockState(pos).getBlock() == Blocks.AIR){
+                worldIn.setBlockState(pos, Blocks.FIRE.getDefaultState(), 11);
+                stack.damageItem(this.damageFS, playerIn);
+                return EnumActionResult.SUCCESS;
+            }
+            else
+            {
+                return EnumActionResult.FAIL;
+            }
+
         }
         else
         {
-            if (worldIn.isAirBlock(pos))
-            {
-                worldIn.playSound(playerIn, pos, SoundEvents.ITEM_FLINTANDSTEEL_USE, SoundCategory.BLOCKS, 1.0F, itemRand.nextFloat() * 0.4F + 0.8F);
-                worldIn.setBlockState(pos, Blocks.FIRE.getDefaultState(), 11);
-            }
-
-            stack.damageItem(this.damageFS , playerIn);
-            return EnumActionResult.SUCCESS;
+            return EnumActionResult.FAIL;
         }
     }
-    */
+
     /**
     @Override
+    /** Tryng to modify oniginal ItemSwords's attackSpeed modifier. NOT WORKING *//**
+
     public Multimap<String, AttributeModifier> getItemAttributeModifiers(EntityEquipmentSlot equipmentSlot)
     {
         Multimap<String, AttributeModifier> multimap = super.getItemAttributeModifiers(equipmentSlot);
