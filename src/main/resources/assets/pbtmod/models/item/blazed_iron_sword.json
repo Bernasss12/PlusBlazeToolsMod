@@ -1,0 +1,6 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "pbtmod:items/blazed_iron_sword"
+  }
+}

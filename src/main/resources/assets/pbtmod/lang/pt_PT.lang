@@ -8,3 +8,8 @@ item.blazed_iron.name=Lingote de Ferro Ardente
 item.blazed_gold.name=Lingote de Ouro Ardente
 item.blazed_diamond.name=Diamante Ardente
 item.blazed_emerald.name=Esmeralda Ardente
+
+#Ferramentas/ArmaS
+item.blazed_iron_sword.name=Espada de Ferro Ardente
+item.blazed_gold_sword.name=Espada de Ouro Ardente
+item.blazed_diamond_sword.name=Espada de Diamante Ardente
