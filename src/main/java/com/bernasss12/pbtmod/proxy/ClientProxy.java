@@ -2,6 +2,9 @@ package com.bernasss12.pbtmod.proxy;
 
 import com.bernasss12.pbtmod.item.ModItem;
 import com.bernasss12.pbtmod.item.ModItems;
+import com.bernasss12.pbtmod.particles.TextureStitcher;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -13,6 +16,7 @@ public class ClientProxy extends CommonProxy {
 
     @Override
     public void preInit(FMLPreInitializationEvent event) {
+      MinecraftForge.EVENT_BUS.register(new TextureStitcher());
 
     }
 
