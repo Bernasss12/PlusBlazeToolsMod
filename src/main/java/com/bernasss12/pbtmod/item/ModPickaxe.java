@@ -1,7 +1,9 @@
 package com.bernasss12.pbtmod.item;
 
 import com.bernasss12.pbtmod.PlusBlazeToolsMain;
+import com.bernasss12.pbtmod.particles.EntityFlameParticle;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.Minecraft;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
@@ -13,8 +15,11 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.minecraftforge.client.event.sound.SoundEvent;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.List;
 import java.util.Random;
@@ -29,7 +34,7 @@ public class ModPickaxe extends ItemPickaxe {
         setCreativeTab(PlusBlazeToolsMain.tabGeneral);
     }
 
-    /*@Override
+    @Override
     public boolean onBlockDestroyed(ItemStack stack, World worldIn, IBlockState state, BlockPos pos, EntityLivingBase entityLiving) {
         Random r = new Random();
         int i = r.nextInt(10);
@@ -37,47 +42,64 @@ public class ModPickaxe extends ItemPickaxe {
         int y = pos.getY();
         int z = pos.getZ();
 
-        if(!worldIn.isRemote) {
-            if (worldIn.getBlockState(pos).getBlock() == (Blocks.IRON_ORE)) {
-                if (i == 5) {
-                    EntityItem item = new EntityItem(worldIn, x, y, z, new ItemStack(Items.IRON_INGOT, 1));
-                    worldIn.destroyBlock(pos, false);
-                    worldIn.spawnEntityInWorld(item);
-                    for(int j = 0; j > 5; j++) {
-                        worldIn.spawnParticle(EnumParticleTypes.FLAME, (double) x + ((double) i * 0.1D), (double) y + ((double) i * 0.1D), (double) z + ((double) i * 0.1D), 0.01D, 0.01D, 0.01D);
-                    }
-                    worldIn.playSound((double) x, (double) y, (double) z, SoundEvents.ENTITY_BLAZE_SHOOT, SoundCategory.BLOCKS, 3.0F + r.nextFloat(), 1.0F, true);
-                }
-            } else if (worldIn.getBlockState(pos).getBlock() == Blocks.GOLD_ORE) {
-                if (i == 5) {
-                    EntityItem item = new EntityItem(worldIn, x, y, z, new ItemStack(Items.GOLD_INGOT, 1));
-                    worldIn.spawnEntityInWorld(item);
-                    worldIn.spawnParticle(EnumParticleTypes.FLAME, (double) x + ((double) i * 0.1D), (double) y + ((double) i * 0.1D), (double) z + ((double) i * 0.1D), 0.01D, 0.01D, 0.01D);
-                    worldIn.playSound((double) x, (double) y, (double) z, SoundEvents.ENTITY_BLAZE_SHOOT, SoundCategory.BLOCKS, 1.0F + r.nextFloat(), 1.0F, true);
-                }
+        if (worldIn.getBlockState(pos).getBlock() == (Blocks.IRON_ORE)) {
+            if (i == 5) {
+                EntityItem item = new EntityItem(worldIn, x, y, z, new ItemStack(Items.IRON_INGOT, 1));
+                dropItems(worldIn, pos, item);
+                smeltAnimation(worldIn, pos);
+                worldIn.playSound((double) x, (double) y, (double) z, SoundEvents.ENTITY_BLAZE_SHOOT, SoundCategory.BLOCKS, 3.0F + r.nextFloat(), 1.0F, true);
+            }
+        } else if (worldIn.getBlockState(pos).getBlock() == Blocks.GOLD_ORE) {
+            if (i == 5) {
+                EntityItem item = new EntityItem(worldIn, x, y, z, new ItemStack(Items.GOLD_INGOT, 1));
+                dropItems(worldIn, pos, item);
+                smeltAnimation(worldIn, pos);
+                worldIn.playSound((double) x, (double) y, (double) z, SoundEvents.ENTITY_BLAZE_SHOOT, SoundCategory.BLOCKS, 3.0F + r.nextFloat(), 1.0F, true);
             }
         }
         return true;
-    }*/
+    }
 
-    @Override
-    public EnumActionResult onItemUse(ItemStack stack, EntityPlayer playerIn, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
-        Random r = new Random();
-        int i = r.nextInt(10);
-        double d = r.nextDouble();
+    @SideOnly(Side.CLIENT)
+    public static void smeltAnimation(World worldIn, BlockPos pos) {
+        Vec3d fireballDirection = new Vec3d(0.5, 0.5, 0.5);
+
         int x = pos.getX();
         int y = pos.getY() + 1;
         int z = pos.getZ();
-        double speed = 0.04D;
-        worldIn.spawnParticle(EnumParticleTypes.FLAME, (double) x + 0.0D, (double) y + 0.0D, (double) z + 0.0D , MathHelper.sin(0.5F), speed, speed);
-        worldIn.spawnParticle(EnumParticleTypes.FLAME, (double) x + 0.0D, (double) y + 0.0D, (double) z + 1.0D , speed*(10/20), speed*(10/20), -speed*(10/20));
-        
-        //worldIn.spawnParticle(EnumParticleTypes.FLAME, (double) x + 1.0D, (double) y + 0.0D, (double) z + 0.0D , -speed, speed, speed);
-        //worldIn.spawnParticle(EnumParticleTypes.FLAME, (double) x + 1.0D, (double) y + 0.0D, (double) z + 1.0D , -speed, speed, -speed);
-        //worldIn.spawnParticle(EnumParticleTypes.FLAME, (double) x + 0.0D, (double) y + 1.0D, (double) z + 0.0D , speed, -speed, speed);
-        //worldIn.spawnParticle(EnumParticleTypes.FLAME, (double) x + 0.0D, (double) y + 1.0D, (double) z + 1.0D , speed, -speed, -speed);
-        //worldIn.spawnParticle(EnumParticleTypes.FLAME, (double) x + 1.0D, (double) y + 1.0D, (double) z + 0.0D , -speed, -speed, speed);
-        //worldIn.spawnParticle(EnumParticleTypes.FLAME, (double) x + 1.0D, (double) y + 1.0D, (double) z + 1.0D , -speed, -speed, -speed);
-        return super.onItemUse(stack, playerIn, worldIn, pos, hand, facing, hitX, hitY, hitZ);
+
+        final double SPEED_IN_BLOCKS_PER_SECOND = 2.0;
+        final double TICKS_PER_SECOND = 20;
+        final double SPEED_IN_BLOCKS_PER_TICK = SPEED_IN_BLOCKS_PER_SECOND / TICKS_PER_SECOND;
+
+        double speedX = SPEED_IN_BLOCKS_PER_TICK * fireballDirection.xCoord;
+        double speedY = SPEED_IN_BLOCKS_PER_TICK * fireballDirection.yCoord;
+        double speedZ = SPEED_IN_BLOCKS_PER_TICK * fireballDirection.zCoord;
+
+        EntityFlameParticle newEffect0 = new EntityFlameParticle(worldIn, x + 0, y + 0, z + 0, speedX, speedY, speedZ);
+        EntityFlameParticle newEffect1 = new EntityFlameParticle(worldIn, x + 0, y + 0, z + 1, speedX, speedY, -speedZ);
+        EntityFlameParticle newEffect2 = new EntityFlameParticle(worldIn, x + 0, y + 1, z + 0, speedX, -speedY, speedZ);
+        EntityFlameParticle newEffect3 = new EntityFlameParticle(worldIn, x + 0, y + 1, z + 1, speedX, -speedY, -speedZ);
+        EntityFlameParticle newEffect4 = new EntityFlameParticle(worldIn, x + 1, y + 0, z + 0, -speedX, speedY, speedZ);
+        EntityFlameParticle newEffect5 = new EntityFlameParticle(worldIn, x + 1, y + 0, z + 1, -speedX, speedY, -speedZ);
+        EntityFlameParticle newEffect6 = new EntityFlameParticle(worldIn, x + 1, y + 1, z + 0, -speedX, -speedY, speedZ);
+        EntityFlameParticle newEffect7 = new EntityFlameParticle(worldIn, x + 1, y + 1, z + 1, -speedX, -speedY, -speedZ);
+
+
+        Minecraft.getMinecraft().effectRenderer.addEffect(newEffect0);
+        Minecraft.getMinecraft().effectRenderer.addEffect(newEffect1);
+        Minecraft.getMinecraft().effectRenderer.addEffect(newEffect2);
+        Minecraft.getMinecraft().effectRenderer.addEffect(newEffect3);
+        Minecraft.getMinecraft().effectRenderer.addEffect(newEffect4);
+        Minecraft.getMinecraft().effectRenderer.addEffect(newEffect5);
+        Minecraft.getMinecraft().effectRenderer.addEffect(newEffect6);
+        Minecraft.getMinecraft().effectRenderer.addEffect(newEffect7);
+
+    }
+
+    @SideOnly(Side.SERVER)
+    public static void dropItems(World worldIn, BlockPos pos, EntityItem item){
+        worldIn.destroyBlock(pos, false);
+        worldIn.spawnEntityInWorld(item);
     }
 }
