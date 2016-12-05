@@ -12,6 +12,7 @@ import net.minecraft.item.ItemPickaxe;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraftforge.client.event.sound.SoundEvent;
 
@@ -67,15 +68,16 @@ public class ModPickaxe extends ItemPickaxe {
         int x = pos.getX();
         int y = pos.getY() + 1;
         int z = pos.getZ();
-        double speed = 0.1D;
-        worldIn.spawnParticle(EnumParticleTypes.FLAME, (double) x + 0.0D, (double) y + 0.0D, (double) z + 0.0D , speed, speed, speed);
-        worldIn.spawnParticle(EnumParticleTypes.FLAME, (double) x + 0.0D, (double) y + 0.0D, (double) z + 1.0D , speed, speed, -speed);
-        worldIn.spawnParticle(EnumParticleTypes.FLAME, (double) x + 1.0D, (double) y + 0.0D, (double) z + 0.0D , -speed, speed, speed);
-        worldIn.spawnParticle(EnumParticleTypes.FLAME, (double) x + 1.0D, (double) y + 0.0D, (double) z + 1.0D , -speed, speed, -speed);
-        worldIn.spawnParticle(EnumParticleTypes.FLAME, (double) x + 0.0D, (double) y + 1.0D, (double) z + 0.0D , speed, -speed, speed);
-        worldIn.spawnParticle(EnumParticleTypes.FLAME, (double) x + 0.0D, (double) y + 1.0D, (double) z + 1.0D , speed, -speed, -speed);
-        worldIn.spawnParticle(EnumParticleTypes.FLAME, (double) x + 1.0D, (double) y + 1.0D, (double) z + 0.0D , -speed, -speed, speed);
-        worldIn.spawnParticle(EnumParticleTypes.FLAME, (double) x + 1.0D, (double) y + 1.0D, (double) z + 1.0D , -speed, -speed, -speed);
+        double speed = 0.04D;
+        worldIn.spawnParticle(EnumParticleTypes.FLAME, (double) x + 0.0D, (double) y + 0.0D, (double) z + 0.0D , MathHelper.sin(0.5F), speed, speed);
+        worldIn.spawnParticle(EnumParticleTypes.FLAME, (double) x + 0.0D, (double) y + 0.0D, (double) z + 1.0D , speed*(10/20), speed*(10/20), -speed*(10/20));
+        
+        //worldIn.spawnParticle(EnumParticleTypes.FLAME, (double) x + 1.0D, (double) y + 0.0D, (double) z + 0.0D , -speed, speed, speed);
+        //worldIn.spawnParticle(EnumParticleTypes.FLAME, (double) x + 1.0D, (double) y + 0.0D, (double) z + 1.0D , -speed, speed, -speed);
+        //worldIn.spawnParticle(EnumParticleTypes.FLAME, (double) x + 0.0D, (double) y + 1.0D, (double) z + 0.0D , speed, -speed, speed);
+        //worldIn.spawnParticle(EnumParticleTypes.FLAME, (double) x + 0.0D, (double) y + 1.0D, (double) z + 1.0D , speed, -speed, -speed);
+        //worldIn.spawnParticle(EnumParticleTypes.FLAME, (double) x + 1.0D, (double) y + 1.0D, (double) z + 0.0D , -speed, -speed, speed);
+        //worldIn.spawnParticle(EnumParticleTypes.FLAME, (double) x + 1.0D, (double) y + 1.0D, (double) z + 1.0D , -speed, -speed, -speed);
         return super.onItemUse(stack, playerIn, worldIn, pos, hand, facing, hitX, hitY, hitZ);
     }
 }

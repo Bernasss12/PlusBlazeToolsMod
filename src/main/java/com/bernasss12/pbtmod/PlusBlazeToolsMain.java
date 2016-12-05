@@ -13,6 +13,7 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import org.apache.logging.log4j.core.Logger;
 
 
 @Mod(modid = PlusBlazeToolsMain.MODID, version = PlusBlazeToolsMain.VERSION, name = PlusBlazeToolsMain.NAME)
@@ -21,6 +22,8 @@ public class PlusBlazeToolsMain
     public static final String MODID = "pbtmod";
     public static final String VERSION = "0.1";
     public static final String NAME = "+Blaze Tools Mod";
+
+    public static Logger logger;
 
     @SidedProxy(clientSide = "com.bernasss12.pbtmod.proxy.ClientProxy", serverSide = "com.bernasss12.pbtmod.proxy.CommonProxy")
     public static CommonProxy proxy;
