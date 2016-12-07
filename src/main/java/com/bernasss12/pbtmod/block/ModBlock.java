@@ -2,10 +2,16 @@ package com.bernasss12.pbtmod.block;
 
 import com.bernasss12.pbtmod.PlusBlazeToolsMain;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.properties.IProperty;
+import net.minecraft.block.properties.PropertyDirection;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.Rotation;
 
 /**
  * Created by Bernardo on 30/11/2016.
@@ -14,12 +20,12 @@ public class ModBlock extends Block
 {
     protected String name;
 
-    public ModBlock(Material material, String name) {
+    public ModBlock(Material material, String unlocalizedName, String textureName) {
         super(material);
 
-        this.name = name;
+        this.name = textureName;
 
-        setUnlocalizedName(name);
+        setUnlocalizedName(unlocalizedName);
         setRegistryName(name);
     }
 
@@ -50,4 +56,5 @@ public class ModBlock extends Block
         super.setResistance(resistance);
         return this;
     }
+
 }
