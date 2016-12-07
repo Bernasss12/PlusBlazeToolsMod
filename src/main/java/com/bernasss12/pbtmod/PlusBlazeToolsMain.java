@@ -4,6 +4,7 @@ package com.bernasss12.pbtmod;
  * Created by Bernasss12 on 11/26/2016.
  */
 
+import com.bernasss12.pbtmod.block.ModBlocks;
 import com.bernasss12.pbtmod.item.ModItems;
 import com.bernasss12.pbtmod.proxy.CommonProxy;
 import com.bernasss12.pbtmod.tab.CreativeTabGeneral;
@@ -38,6 +39,7 @@ public class PlusBlazeToolsMain
         tabGeneral = new CreativeTabGeneral(CreativeTabs.getNextID(), "tab_general");
 
         ModItems.preInit();
+        ModBlocks.preInit();
 
         proxy.preInit(event);
     }

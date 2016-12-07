@@ -1,6 +1,7 @@
 package com.bernasss12.pbtmod.proxy;
 
 import com.bernasss12.pbtmod.util.Config;
+import net.minecraft.item.Item;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
@@ -30,5 +31,9 @@ public class CommonProxy {
         if (config.hasChanged()) {
             config.save();
         }
+    }
+
+    public void registerItemRenderer(Item item, int meta, String id) {
+
     }
 }
