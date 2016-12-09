@@ -1,0 +1,8 @@
+{
+	"parent": "block/orientable",
+	"textures": {
+		"top": "pbtmod:blocks/diamond_block_top",
+		"front": "pbtmod:blocks/diamond_block_face",
+		"side": "pbtmod:blocks/diamond_block_side"
+	}
+}

@@ -1,0 +1,8 @@
+{
+	"parent": "block/orientable",
+	"textures": {
+		"top": "pbtmod:blocks/emerald_block_top",
+		"front": "pbtmod:blocks/emerald_block_face",
+		"side": "pbtmod:blocks/emerald_block_side"
+	}
+}
