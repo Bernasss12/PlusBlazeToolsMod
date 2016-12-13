@@ -50,10 +50,7 @@ public class EntityFlameParticle extends Particle {
         prevPosY = posY;
         prevPosZ = posZ;
 
-        moveEntity(motionX, motionY, motionZ);
-        if (isCollided) {
-            this.setExpired();
-        }
+        move(motionX, motionY, motionZ);
 
         if (this.particleMaxAge-- <= 0) {
             this.setExpired();

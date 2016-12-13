@@ -5,6 +5,7 @@ import com.bernasss12.pbtmod.item.ModItems;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 
 /**
  * Created by Bernasss12 on 11/26/2016.
@@ -15,7 +16,8 @@ public class CreativeTabGeneral extends CreativeTabs{
     }
 
     @Override
-    public Item getTabIconItem() {
-        return ModItems.blazedIron;
+    public ItemStack getTabIconItem() {
+        ItemStack item = new ItemStack(ModItems.blazedDiamond);
+        return item;
     }
 }

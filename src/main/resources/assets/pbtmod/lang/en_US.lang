@@ -13,3 +13,9 @@ item.blazed_emerald.name=Blazed Emerald
 item.blazed_iron_sword.name=Blazed Iron Sword
 item.blazed_gold_sword.name=Blazed Gold Sword
 item.blazed_diamond_sword.name=Blazed Diamond Sword
+
+#Blocks
+tile.blazedIronBlock.name=Blazed Iron Block
+tile.blazedGoldBlock.name=Blazed Gold Block
+tile.blazedDiamondBlock.name=Blazed Diamond Block
+tile.blazedEmeraldBlock.name=Blazed Emerald Block

@@ -28,7 +28,7 @@ public class ModPickaxe extends ItemPickaxe {
     private boolean success;
 
     @Override
-    public EnumActionResult onItemUse(ItemStack stack, EntityPlayer playerIn, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
+    public EnumActionResult onItemUse(EntityPlayer playerIn, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
 
         if (!worldIn.isRemote){
             int x = pos.getX();
@@ -38,23 +38,24 @@ public class ModPickaxe extends ItemPickaxe {
             if (worldIn.getBlockState(pos).getBlock() == Blocks.IRON_ORE) {
                 worldIn.destroyBlock(pos, false);
                 EntityItem item = new EntityItem(worldIn, x, y, z, new ItemStack(Items.IRON_INGOT, 1));
-                worldIn.spawnEntityInWorld(item);
-                stack.damageItem(2, playerIn);
+                worldIn.spawnEntity(item);
+                playerIn.getActiveItemStack().damageItem(2, playerIn);
                 worldIn.playSound(x, y, z, SoundEvents.ENTITY_BLAZE_SHOOT, SoundCategory.BLOCKS, 1.0F, 1.0f, true);
-                success = true;
+                this.success = true;
                 return EnumActionResult.SUCCESS;
 
 
             }else if (worldIn.getBlockState(pos).getBlock() == Blocks.GOLD_ORE){
                 worldIn.destroyBlock(pos, false);
                 EntityItem item = new EntityItem(worldIn, x, y, z, new ItemStack(Items.GOLD_INGOT, 1));
-                worldIn.spawnEntityInWorld(item);
-                stack.damageItem(3, playerIn);
+                worldIn.spawnEntity(item);
+                playerIn.getActiveItemStack().damageItem(3, playerIn);
                 worldIn.playSound(x, y, z, SoundEvents.ENTITY_BLAZE_SHOOT, SoundCategory.BLOCKS, 1.0F, 1.0f, true);
-                success = true;
+                this.success = true;
                 return EnumActionResult.SUCCESS;
             }
             else {
+                this.success = false;
                 return EnumActionResult.FAIL;
             }
 
@@ -97,7 +98,7 @@ public class ModPickaxe extends ItemPickaxe {
             Minecraft.getMinecraft().effectRenderer.addEffect(newEffect7);
 
             worldIn.playSound(x, y, z, SoundEvents.ENTITY_BLAZE_SHOOT, SoundCategory.BLOCKS, 1.0F, 1.0f, true);
-            success = false;
+            this.success = false;
             }
          }
         return EnumActionResult.PASS;

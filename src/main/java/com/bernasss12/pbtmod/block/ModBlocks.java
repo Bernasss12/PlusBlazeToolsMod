@@ -12,19 +12,20 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 public class ModBlocks {
 
     /** Creating variable to every block. */
-    public static ModBlock blazedIronBlock;
+
     public static ModBlock blazedGoldBlock;
     public static ModBlock blazedDiamondBlock;
     public static ModBlock blazedEmeraldBlock;
+    public static ModBlock blazedIronBlock;
 
     public static void preInit(){
 
         /** Registering every block. */
-        blazedIronBlock = register(new ModBlock(Material.IRON, "blazedIronBlock", "blazed_iron_block").setCreativeTab(PlusBlazeToolsMain.tabGeneral).setLightLevel(3.75F));
+
         blazedGoldBlock = register(new ModBlock(Material.IRON, "blazedGoldBlock", "blazed_gold_block").setCreativeTab(PlusBlazeToolsMain.tabGeneral).setLightLevel(7.5F));
         blazedDiamondBlock = register(new ModBlock(Material.IRON, "blazedDiamondBlock", "blazed_diamond_block").setCreativeTab(PlusBlazeToolsMain.tabGeneral).setLightLevel(11.25F));
         blazedEmeraldBlock = register(new ModBlock(Material.IRON, "blazedEmeraldBlock", "blazed_emerald_block").setCreativeTab(PlusBlazeToolsMain.tabGeneral).setLightLevel(15F));
-
+        blazedIronBlock = register(new ModBlock(Material.IRON, "blazedIronBlock", "blazed_iron_block").setCreativeTab(PlusBlazeToolsMain.tabGeneral).setLightLevel(3.75F));
     }
 
     private static <T extends Block> T register(T block, ItemBlock itemBlock) {

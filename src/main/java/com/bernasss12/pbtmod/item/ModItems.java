@@ -32,6 +32,7 @@ public class ModItems {
     public static ModPickaxe bdiamondPickaxe;
 
 
+
     public static void preInit(){
 
         /** Initalizing all items. */
@@ -52,6 +53,7 @@ public class ModItems {
         bironPickaxe = new ModPickaxe(EnumHelper.addToolMaterial("blazedIronMaterial", 3, 500, 7.0F,4.0F,0), "blazed_iron_pickaxe");
         bgoldPickaxe = new ModPickaxe(EnumHelper.addToolMaterial("blazedGoldMaterial", 3, 100, 15.0F, 2.0F, 0), "blazed_gold_pickaxe");
         bdiamondPickaxe = new ModPickaxe(EnumHelper.addToolMaterial("blazedDiamondMaterial", 3, 3000, 10.0F, 6.0F, 0), "blazed_diamond_pickaxe");
+
 
         /** Running the registry constructor. */
         registerItems();
