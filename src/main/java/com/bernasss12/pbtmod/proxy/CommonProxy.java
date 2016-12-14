@@ -18,7 +18,7 @@ public class CommonProxy {
 
     public void preInit(FMLPreInitializationEvent event){
         File directory = event.getModConfigurationDirectory();
-        config = new Configuration(new File(directory.getPath(), "modtut.cfg"));
+        config = new Configuration(new File(directory.getPath(), "pbtmod.cfg"));
         Config.checkConfig();
 
     }
