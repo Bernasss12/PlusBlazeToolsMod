@@ -44,13 +44,13 @@ public class ModItems {
         blazedEmerald = new ModItem("blazed_emerald");
 
         /** Weapons */
-        bironSword = new ModSword(EnumHelper.addToolMaterial("blazedIronMaterial", 3, 500, 7.0F, 4.0F, 0), "blazed_iron_sword", 2, -1.0F);
+        bironSword = new ModSword(EnumHelper.addToolMaterial("blazedIronMaterial", 3, 500, 15.0F, 4.0F, 0), "blazed_iron_sword", 2, -1.0F);
         bgoldSword = new ModSword(EnumHelper.addToolMaterial("blazedGoldMaterial", 3, 100, 15.0F, 2.0F, 0), "blazed_gold_sword", 2, 0.0F);
-        bdiamondSword = new ModSword(EnumHelper.addToolMaterial("blazedDiamondMaterial", 3, 3000, 10.0F, 6.0F, 0), "blazed_diamond_sword", 3, 1.0F);
+        bdiamondSword = new ModSword(EnumHelper.addToolMaterial("blazedDiamondMaterial", 3, 3000, 20.0F, 6.0F, 0), "blazed_diamond_sword", 3, 1.0F);
 
 
         /** Tools */
-        bironPickaxe = new ModPickaxe(EnumHelper.addToolMaterial("blazedIronMaterial", 3, 500, 7.0F,4.0F,0), "blazed_iron_pickaxe");
+        bironPickaxe = new ModPickaxe(EnumHelper.addToolMaterial("blazedIronMaterial", 3, 500, 15.0F,4.0F,0), "blazed_iron_pickaxe");
         bgoldPickaxe = new ModPickaxe(EnumHelper.addToolMaterial("blazedGoldMaterial", 3, 100, 15.0F, 2.0F, 0), "blazed_gold_pickaxe");
         bdiamondPickaxe = new ModPickaxe(EnumHelper.addToolMaterial("blazedDiamondMaterial", 3, 3000, 10.0F, 6.0F, 0), "blazed_diamond_pickaxe");
 

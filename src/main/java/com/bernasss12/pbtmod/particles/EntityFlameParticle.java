@@ -5,7 +5,6 @@ import net.minecraft.client.particle.Particle;
 import net.minecraft.client.renderer.VertexBuffer;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.entity.Entity;
-import net.minecraft.init.Blocks;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 
@@ -15,11 +14,14 @@ import net.minecraft.world.World;
 
 public class EntityFlameParticle extends Particle {
     private final ResourceLocation flameRL = new ResourceLocation("pbtmod:entity/flame_fx");
+    private int CURRENT_AGE;
 
-    public EntityFlameParticle(World world, double x, double y, double z, double speedX, double speedY, double speedZ) {
+    public EntityFlameParticle(World world, double x, double y, double z, double speedX, double speedY, double speedZ, int ticks) {
         super(world, x, y, z, speedX, speedY, speedZ);
 
-        particleMaxAge = 10;
+        //this.setAge(ticks);
+
+        particleMaxAge = ticks;
         final float alpha = 0.99F;
         this.particleAlpha = alpha;
 
@@ -30,6 +32,8 @@ public class EntityFlameParticle extends Particle {
         TextureAtlasSprite sprite = Minecraft.getMinecraft().getTextureMapBlocks().getAtlasSprite(flameRL.toString());
         setParticleTexture(sprite);
     }
+
+
 
     @Override
     public int getFXLayer()
@@ -50,9 +54,17 @@ public class EntityFlameParticle extends Particle {
         prevPosY = posY;
         prevPosZ = posZ;
 
+        this.CURRENT_AGE++;
+
         move(motionX, motionY, motionZ);
 
         if (this.particleMaxAge-- <= 0) {
+            this.setExpired();
+        }
+    }
+
+    public void setAge(int age){
+        if(CURRENT_AGE >= age){
             this.setExpired();
         }
     }
